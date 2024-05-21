@@ -7,4 +7,4 @@
 * **streamlit (`pip install streamlit`)**
 * **streamlit-option-menu (`pip install streamlit-option-menu`)**
 ###OR
-* **pip install -r requirements.txt**
+
