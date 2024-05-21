@@ -1,1 +1,1 @@
-# predict_project
+# multi disease prediction with streamlit
