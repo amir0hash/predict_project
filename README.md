@@ -6,5 +6,5 @@
 * **Numpy (`pip install numpy`)**
 * **streamlit (`pip install streamlit`)**
 * **streamlit-option-menu (`pip install streamlit-option-menu`)**
-###OR
-
+### OR
+* **pip install -r requirements.txt**
