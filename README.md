@@ -1,4 +1,7 @@
 # multi disease prediction with streamlit
+## example of app:
+![alt text](https://github.com/amir0hash/predict_project/blob/main/example_app.png?raw=true)
+
 ## Requirements
 * **Python 3.8+**
 * **NumPy (`pip install numpy`)**
@@ -8,4 +11,3 @@
 * **streamlit-option-menu (`pip install streamlit-option-menu`)**
 ### OR
 * **pip install -r requirements.txt**
-![alt text](https://github.com/amir0hash/predict_project/blob/main/example_app.png?raw=true)
