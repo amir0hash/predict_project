@@ -1,6 +1,11 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from pred_model import pred_diabet_model, pred_heart_disease, pred_parkinsons
+
+from pred_model import  pred_heart_disease, pred_diabet_model, pred_parkinsons, pred_symptom
+import pandas as pd
+symptoms = pd.read_csv('symptoms/Symptom-severity.csv')
+symptoms['Symptom'] = symptoms['Symptom'].str.replace('_',' ')
+
 # Set page configuration
 st.set_page_config(page_title="پیشبینی بیماری",
                    layout="wide",
@@ -15,9 +20,9 @@ with st.sidebar:
                            ['Diabetes Prediction',
                             'Heart Disease Prediction',
                             'Parkinsons Prediction',
-                            'Pneumonia Prediction'],
+                            'Symptom Prediction'],
                            menu_icon='hospital-fill',
-                           icons=['activity', 'heart', 'person', 'lungs'],
+                           icons=['activity', 'bi-heart-pulse', 'person', 'bi-clipboard-pulse'],
                            styles={
                                         "container": {"padding": "0!important", "background-color": "#000000"},
                                         "icon": {"color": "red", "font-size": "28px"}, 
@@ -273,3 +278,120 @@ if selected == "Parkinsons Prediction":
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
     st.success(parkinsons_diagnosis)
+
+#  symptom's Prediction Page
+if selected == 'Symptom Prediction':
+
+    # page title
+    st.title('Symptom Prediction')
+
+    st.subheader('Please enter your symptoms or medical issues below:')
+    # getting the input data from the user
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        symptom1 = st.selectbox(
+            "symptom 1",
+            symptoms,
+            index=None,
+            placeholder="Please input the symptom number 1...",
+            )
+        
+    with col2:
+        symptom2 = st.selectbox(
+            'symptom 2',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 2",
+            )
+
+    with col3:
+        symptom3 = st.selectbox(
+            'symptom 3',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 3",
+            )
+
+    with col1:
+        symptom4 = st.selectbox(
+            'symptom 4',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 4",
+            )
+
+    with col2:
+        symptom5 = st.selectbox(
+            'symptom 5',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 5",
+            )
+
+    with col3:
+        symptom6 = st.selectbox(
+            'symptom 6',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 6",
+            )
+
+    with col1:
+        symptom7 = st.selectbox(
+            'symptom 7',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 7",
+            )
+
+    with col2:
+        symptom8 = st.selectbox(
+            'symptom 8',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 8",
+            )
+
+    with col3:
+        symptom9 = st.selectbox(
+            'symptom 9',
+            symptoms,
+            index=None,
+            placeholder="input the symptom number 9",
+            )
+
+    # code for Prediction
+    symptom_diagnosis = ''
+    symptom_prediction = ''
+    selected_page = ''
+    dicOut = ''
+    disease = ''
+    description = ''
+    precautions = ''
+    # creating a button for Prediction    
+    if st.button("Parkinson's Test Result"):
+
+        user_input = [symptom1, symptom2, symptom3, symptom4, symptom5, symptom6, symptom7, symptom8, symptom9,'','','','','','','','' ]
+
+        # انجام میشود pred_model عملیات پیش پردازش در فایل
+        # user_input = [float(x) for x in user_input]
+
+        disease, description, precautions = pred_symptom(user_input)
+
+        if symptom_prediction:
+            symptom_diagnosis = f"{symptom_prediction}"
+        else:
+            symptom_diagnosis = "The person does not have Parkinson's disease"
+
+        st.header(":mask: Predicted Disease")
+        st.subheader(disease)
+        st.subheader('', divider='rainbow')
+        st.header(":memo: Disease Description :+1:")
+        st.write(description)
+        st.subheader('', divider="rainbow")
+        st.header(":pill: Medical Precautions")
+        for precaution in precautions:
+            st.markdown(f"<h2 style='font-size:24px;'>• {precaution}</h2>", unsafe_allow_html=True)
+        
+      
