@@ -16,7 +16,7 @@ RUN git clone https://github.com/amir0hash/predict_project.git .
 
 RUN pip3 install -r requirements.txt
 
-Run pip3 uninstall scikit-learn -y && pip3 install scikit-learn==1.3.0
+# Run pip3 uninstall scikit-learn -y && pip3 install scikit-learn==1.3.0
 
 EXPOSE 8501
 
