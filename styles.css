@@ -1,0 +1,38 @@
+.subheader-red {
+    background-color: #FF6347; /* Tomato */
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    color: white; /* برای متن اصلی */
+}
+
+.subheader-blue {
+    background-color: #ADD8E6; /* LightBlue */
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    color: black; /* برای متن اصلی */
+}
+
+.subheader-yellow {
+    background-color: #FFD700; /* Gold */
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    color: black; /* برای متن اصلی */
+}
+
+.subheader-green {
+    background-color: #98FB98; /* PaleGreen */
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    color: black; /* برای متن اصلی */
+}
+
+.put-button button {
+    height: auto;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
